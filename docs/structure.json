@@ -1,0 +1,30 @@
+{
+  "courses": {
+    "math240": {
+      "course code": "MATH 240",
+      "credits": 3,
+      "offered_by": "Mathematics and Statistics(Faculty of Science)",
+      "administered_by": "",
+      "year": "2022-2023",
+      "terms": [
+        "Fall 2022",
+        "Winter 2023"
+      ],
+      "overview": "Lorem Ipsum",
+      "instructors": {
+        "fall": [
+          "Jerome Fortier",
+          "Adrien Vetta"
+        ],
+        "winter": [
+          "Jerome Fortier",
+          "Jeremy Macdonald"
+        ]
+      },
+      "prerequisites": "",
+      "corequisites": "math133",
+      "restriction": "For students in any Computer Science, Computer Engineering, or Software Engineering programs. Others only with the instructor's permission. Not open to students who have taken or are taking MATH 235.",
+      "others": ""
+    }
+  }
+}
