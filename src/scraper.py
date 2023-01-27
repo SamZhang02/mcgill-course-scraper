@@ -26,7 +26,24 @@ def get_terms(html:bs.BeautifulSoup) -> list:
     string = string.removesuffix("</p>")
     string = string.strip()
     string = string.removeprefix("Terms:")
-    return string.strip().split(",")
+    output = string.strip().split(",")
+    if "not" in output[0]:
+        return []
+    return output 
+
+def get_profs(html:bs.BeautifulSoup) -> list:
+    string = str(html.find_all("p",class_="catalog-instructors")[0])
+    string = string.removeprefix("<p class=\"catalog-instructors\">")
+    string = string.removesuffix("</p>")
+    string = string.strip()
+    string = string.removeprefix("Instructors:")
+    string = string.removesuffix("(Winter)")
+    output = string.strip().split("(Fall)")
+    if "no" in output[0]:
+        return []
+    for i in range(len(output)):
+        output[i] = [x.strip() for x in output[i].split(";")]
+    return output
 
 if __name__ == "__main__":
     course = get_html_soup("https://www.mcgill.ca/study/2022-2023/courses/math-240")
@@ -35,4 +52,5 @@ if __name__ == "__main__":
     print(get_course_credits(title))
     print(get_course_name(title))
     print(get_terms(course))
+    print(get_profs(course))
     pass
