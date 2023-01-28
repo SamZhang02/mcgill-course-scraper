@@ -1,7 +1,8 @@
 {
   "courses": {
     "math240": {
-      "course code": "MATH 240",
+      "url": "https://www.mcgill.ca/study/2022-2023/courses/math-240",
+      "course_code": "MATH 240",
       "credits": 3,
       "offered_by": "Mathematics and Statistics(Faculty of Science)",
       "administered_by": "",
