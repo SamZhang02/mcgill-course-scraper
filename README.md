@@ -1,5 +1,7 @@
 # McGill-Course-Scraper
-Scraper written in Python that scrapes all courses from McGill University and their relevant information
+Scraper written in Python that scrapes all courses from McGill University and their relevant information.
+
+Only valid for the 2022-2023 school year for now. 
 
 ---
 
