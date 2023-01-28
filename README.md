@@ -26,6 +26,6 @@ py src/main.py
 
 The program starts by scraping the URL of all courses on McGill University's official website and storing them in a `.txt` in `/output`. This should take a few minutes.
 
-The program then requests each URL in the file and parses the individual pages one by one. This takes quite a bit longer, the process will be printed out on the terminal.
+The program then requests each URL in the file and parses the individual pages one by one. This takes quite a bit longer (10k+ requests, fortunately the website has no rate limit, lol), the process status will be printed out in the terminal as the program executes. The code is coded for a single instance by default, but you are welcome to modify the URL file and the code to execute multiple instances at once to increase the speed. 
 
 The output will be stored in `/output/courses.json`. See `/docs/structure.json` for a miniature example of what the file will look like.
