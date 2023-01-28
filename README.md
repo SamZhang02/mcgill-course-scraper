@@ -1,4 +1,4 @@
-# mcgill-course-scraper
+# McGill-Course-Scraper
 Scraper written in Python that scrapes all courses from McGill University and their relevant information
 
 ---
