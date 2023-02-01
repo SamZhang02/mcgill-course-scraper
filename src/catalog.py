@@ -29,6 +29,7 @@ def get_page_course_urls(url) -> list:
 def get_all_urls(output_path: str) -> None:
     URL = "https://www.mcgill.ca/study/2022-2023/courses/search?page="
     with open(output_path,"w") as fobj:
+        print("Fetching courses' URL...")
         for i in range(520):
             url = URL + str(i)
             page_urls = get_page_course_urls(url)
