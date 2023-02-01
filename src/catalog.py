@@ -1,7 +1,7 @@
 import urllib.request
 import bs4 as bs
 
-def get_html_soup(url:str) -> bs.BeautifulSoup:
+def get_html_soup(url: str) -> bs.BeautifulSoup:
     try:
         response = urllib.request.urlopen(url)
     except urllib.error.HTTPError:
@@ -26,9 +26,10 @@ def get_page_course_urls(url) -> list:
         output.append(HEADER + h4.find('a')['href'])
     return output
 
-def get_all_urls() -> None:
+def get_all_urls(output_path: str) -> None:
     URL = "https://www.mcgill.ca/study/2022-2023/courses/search?page="
-    with open("../output/course_urls.txt","w") as fobj:
+    with open(output_path,"w") as fobj:
+        print("Fetching courses' URL...")
         for i in range(520):
             url = URL + str(i)
             page_urls = get_page_course_urls(url)
@@ -37,4 +38,3 @@ def get_all_urls() -> None:
 
 if __name__ == "__main__":
     get_all_urls()
-    pass

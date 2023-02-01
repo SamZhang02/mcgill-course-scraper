@@ -121,6 +121,7 @@ def get_other_notes(notes:list) ->list:
     return output
 
 def get_page_json(url:str) -> dict:
+    print(f"Currently parsing {url}")
     course = get_html_soup(url)
     course_code = url.split('/')[-1].strip()
     course_code = "".join(course_code.split('-'))
@@ -156,4 +157,3 @@ def get_page_json(url:str) -> dict:
 if __name__ == "__main__":
     url = "https://www.mcgill.ca/study/2022-2023/courses/math-323"
     print(get_page_json(url))
-    pass
