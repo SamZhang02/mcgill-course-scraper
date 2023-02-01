@@ -1,11 +1,12 @@
 from page_scraper import get_page_json
-from catalog import get_all_urls 
+from catalog import get_all_urls
 import json
 from os import path
 from multiprocessing import Pool
 import time
+from argparse import ArgumentParser
 
-def scrape(num_of_threads) -> None:
+def scrape(args) -> None:
     output_path = path.join(path.dirname(__file__), '..', 'output')
     courses_path = path.join(output_path, 'courses.json')
 
@@ -19,7 +20,7 @@ def scrape(num_of_threads) -> None:
     t0 = time.time()
 
     # Get data from each url using multithreading
-    with Pool(num_of_threads) as p:
+    with Pool(args.num_threads) as p:
         data = p.map(get_page_json, urls)
 
     t1 = time.time()
@@ -33,7 +34,13 @@ def scrape(num_of_threads) -> None:
         json.dump(json_dict, outfile, indent=2)
 
 if __name__ == "__main__":
-    # 50 threads by default should scrape everything under 2 minutes.
-    # Feel free to reduce threads to slow it down if rate limit is a concern.
-    THREADS = 50
-    scrape(THREADS)
+    parser = ArgumentParser()
+
+    parser.add_argument(
+        '-nt',
+        '--num-threads',
+        type=int, default=50,
+        help='Number of threads to use when scraping course data'
+    )
+
+    scrape(parser.parse_args())
