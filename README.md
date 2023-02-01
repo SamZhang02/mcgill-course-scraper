@@ -9,6 +9,10 @@ Only valid for the 2022-2023 school year for now.
 
 ---
 
+## News
+Version 0.2: 
+- Added multithreading to speed-up individual page scrapings.
+
 ## Requirements
 ```
 pip install -r requirements.txt
