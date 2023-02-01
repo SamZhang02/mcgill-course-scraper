@@ -3,15 +3,19 @@ from catalog import get_all_urls
 import json
 from os import path
 import sys
+import threading
 
 def scrape() -> None:
-    with open('../output/courses.json', 'w') as outfile:
-            json.dump({"courses":{}}, outfile)
+    output_path = path.join(path.dirname(__file__), '..', 'output')
+    courses_path = path.join(output_path, 'courses.json')
+    with open(courses_path, 'w+') as outfile:
+        json.dump({"courses":{}}, outfile)
 
-    if not path.exists("../output/course_urls.txt"):
-        get_all_urls()
+    urls_path = path.join(output_path, 'course_urls.txt')
+    if not path.exists(urls_path):
+        get_all_urls(urls_path)
 
-    with open("../output/course_urls.txt",'r') as fobj:
+    with open(urls_path,'r') as fobj:
         urls = fobj.read().strip().split("\n")
 
     for url in urls:
@@ -28,9 +32,8 @@ def scrape() -> None:
             continue
         course_code = data["course_code"]
 
-        with open('../output/courses.json', 'r') as outfile:
+        with open(courses_path, 'w+') as outfile:
             json_dict = json.load(outfile)
-        with open('../output/courses.json', 'w') as outfile:
             json_dict["courses"][course_code] = data
             json.dump(json_dict, outfile)
 
