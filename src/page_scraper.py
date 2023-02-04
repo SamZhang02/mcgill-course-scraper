@@ -139,7 +139,6 @@ def get_page_json(url:str) -> dict:
         "credits": get_course_credits(title),
         "course_name": get_course_name(title),
         "offered_by": get_faculty(course),
-        "year": "2022-2023",
         "terms": get_terms(course),
         "overview": get_overview(course),
         "instructors": get_profs(course),
