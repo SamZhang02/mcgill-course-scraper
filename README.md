@@ -35,4 +35,4 @@ The program then requests each URL in the file and parses the individual pages o
 The output will be stored in `/output/courses.json`. See `/docs/structure.json` for a miniature example of what the file will look like.
 
 ## Contributing
-Fork the repo and open a PR to `/dev` with the appropriate title and descriptions.
+Fork the repo and open a PR to `/main` with the appropriate title and descriptions.
