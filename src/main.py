@@ -39,7 +39,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '-nt',
         '--num-threads',
-        type=int, default=50,
+        type=int, default=10,
         help='Number of threads to use when scraping course data'
     )
 
