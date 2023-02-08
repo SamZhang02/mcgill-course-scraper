@@ -21,11 +21,11 @@ pip install -r requirements.txt
 ## Usage
 MacOS
 ```
-python3 src/main.py --num-threads=<int> [default: 50]
+python3 src/main.py --num-threads=<int> [default: 10]
 ```
 Windows
 ```
-py src/main.py --num-threads=<int> [default: 50]
+py src/main.py --num-threads=<int> [default: 10]
 ```
 
 The program starts by scraping the URL of all courses on McGill University's official website and storing them in a `.txt` in `/output`. This should take a few minutes.
